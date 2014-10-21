@@ -1,0 +1,53 @@
+<html>
+<head>
+	<title>Chroma Key</title>
+
+	<!-- STYLESHEET -->
+	<meta name="google-site-verification" content="ylnvTo0uhdkxG9LdmXSmfg2a3rsBq5XNdiBykVhAMmk" />
+	<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/opdamjfadobkhglnjgiehhackhmgfgei">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<a href="javascript:chrome.webstore.install();">Install me</a>
+	<!-- body; the button element that is used to invoke inline installation -->
+	<!-- <button onclick="" id="install-button" style="padding: 0;background: none;height: 61px;vertical-align: middle;cursor:pointer;">
+	    <img src="https://www.webrtc-experiment.com/images/btn-install-chrome-extension.png" alt="Add to Chrome">
+	</button> -->
+
+	<iframe 
+	    src="https://chromakey.herokuapp.com/target-iframe.html" 
+	    style="border:0;width:100%;height:100%;overflow:auto;">
+	</iframe>
+
+	<section id="scene"></section>
+
+	<div id="blocker">
+
+		<div id="instructions">
+			<span style="font-size:40px">Click to play</span>
+			<br />
+			(W, A, S, D = Move, SPACE = Jump, MOUSE = Look around)
+		</div>
+
+	</div>
+
+	<!-- JAVASCRIPT -->
+	<script src="js/three.min.js"></script>
+	<script src="js/detector.js"></script>
+	<script src="js/stats.min.js"></script>
+	<script src="js/PointerLockControls.js"></script>
+	<script src="js/THREEx.screenshot.js"></script>
+	<script src="js/loaders/lzma.js"></script>
+	<script src="js/loaders/ctm.js"></script>
+	<script src="js/loaders/CTMLoader.js"></script>
+	<script src="js/loaders/BinaryLoader.js"></script>
+	<script src="js/loaders/OBJLoader.js"></script>
+	<script src="js/loaders/OBJMTLLoader.js"></script>
+	<script src="js/loaders/VTKLoader.js"></script>
+	<script src="js/loaders/STLLoader.js"></script>
+	<script src="js/loaders/ColladaLoader.js"></script>
+	<script src="js/loaders/UTF8Loader.js"></script>
+	<script src="js/loaders/MTLLoader.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+
+	var vid = document.getElementById('videoel');
+	var overlay = document.getElementById('overlay');
+	var overlayCC = overlay.getContext('2d');
+	var psrElement = document.getElementById('percentage');
+	var ctrack = new clm.tracker({useWebGL : true});
+	var lefteye = document.getElementById('leftmask');
+	var newlcy, newlcx; 
+	var i = 0;
+	width = 400;
+	height = 300;
+	ctrack.init(pModel);
+	
+	
+	stats = new Stats();
+	stats.domElement.style.position = 'absolute';
+	stats.domElement.style.top = '0px';
+	document.getElementById('container').appendChild( stats.domElement );
+	
+	function enablestart() {
+		var startbutton = document.getElementById('startbutton');
+		startbutton.value = "start";
+		startbutton.disabled = null;
+	}
+	
+	var insertAltVideo = function(video) {
+		if (supports_video()) {
+			if (supports_ogg_theora_video()) {
+				video.src = "./media/cap12_edit.ogv";
+			} else if (supports_h264_baseline_video()) {
+				video.src = "./media/cap12_edit.mp4";
+			} else {
+				return false;
+			}
+			//video.play();
+			return true;
+		} else return false;
+	}
+	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+	window.URL = window.URL || window.webkitURL || window.msURL || window.mozURL;
+
+	// check for camerasupport
+	if (navigator.getUserMedia) {
+		// set up stream
+		var videoSelector = {video : true};
+		if (window.navigator.appVersion.match(/Chrome\/(.*?) /)) {
+			var chromeVersion = parseInt(window.navigator.appVersion.match(/Chrome\/(\d+)\./)[1], 10);
+			if (chromeVersion < 20) {
+				videoSelector = "video";
+			}
+		};
+	
+		navigator.getUserMedia(videoSelector, function( stream ) {
+			if (vid.mozCaptureStream) {
+				vid.mozSrcObject = stream;
+			} else {
+				vid.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
+			}
+			vid.play();
+		}, function(code) {
+			alert("h"+code);
+			insertAltVideo(vid);
+			document.getElementById('gum').className = "hide";
+			document.getElementById('nogum').className = "nohide";
+			//alert("There was some problem trying to fetch video from your webcam, using a fallback video instead.");
+		});
+	} else {
+		insertAltVideo(vid);
+		document.getElementById('gum').className = "hide";
+		document.getElementById('nogum').className = "nohide";
+		alert("Your browser does not seem to support getUserMedia, using a fallback video instead.");
+	}
+
+	vid.addEventListener('canplay', enablestart, false);
+	
+	function startVideo() {
+		// start video
+		//vid.play();
+		// start tracking
+		ctrack.start(vid);
+		// start loop to draw face
+		drawLoop();
+	}
+	
+	
+	function drawLoop() {
+		requestAnimFrame(drawLoop);
+	
+		
+		
+		overlayCC.clearRect(0, 0, width, height);
+		//function draw(vid, vidCC, width, height) {
+			overlayCC.drawImage(vid, 0, 0, width, height);
+			//setTimeout(draw, 1, vid, vidCC, width, height);
+		//	}
+		//console.log( "score :" + ctrack.getScore().toFixed(4));
+		psrElement.innerHTML = "Score : " + ctrack.getScore().toFixed(4);
+					//x values are 1 - val because x 0 origin is top right
+					
+		if (ctrack.getCurrentPosition()) {
+		ctrack.draw(overlay);
+		console.log(i+++' '+overlay.toDataURL());	
+			centerpos=ctrack.getCurrentPosition()[62];
+			newlcx = (1 - (centerpos[0]/400)).toFixed(3);
+			newlcy = (centerpos[1]/600).toFixed(3);
+			lefteye.setAttribute('cx', newlcx);
+			lefteye.setAttribute('cy', newlcy);
+//		URL=overlay.toDataURL()
+		
+		}
+	}
+	
+	// update stats on every iteration
+	document.addEventListener('clmtrackrIteration', function(event) {
+		stats.update();
+	}, false);

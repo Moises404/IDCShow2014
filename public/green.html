@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+    <title>Green Screen</title>
+    <link rel="stylesheet" href="css/green.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    
+    </head>
+    
+    <body>
+            <div id="controls">
+
+            <p>
+                <label for="amount"></label>
+                <input type="text" id="amount" readonly style="border:0; font-weight:bold;">
+                <input type="text" id="amountb" readonly style="border:0; font-weight:bold;">
+            </p>
+
+            <div id="slider-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 33.4%; width: 26.6%;"></div>
+                <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 33.4%;"></span>
+                <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 60%;"></span>
+            </div>
+
+             <p>
+                <label for="amount2"></label>
+                <input type="text" id="amount2" readonly style="border:0; font-weight:bold;">
+            </p>
+
+             <div id="slider-range2" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 33.4%; width: 26.6%;"></div>
+                <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 33.4%;"></span>
+                <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 60%;"></span>
+            </div>
+
+             <p>
+                <label for="amount3"></label>
+                <input type="text" id="amount3" readonly style="border:0; font-weight:bold;">
+            </p>
+
+             <div id="slider-range3" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 33.4%; width: 26.6%;"></div>
+                <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 33.4%;"></span>
+                <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 60%;"></span>
+            </div>
+
+        </div>
+
+            <video id="video" width="640" height="480" controls="true" autoplay></video>
+            <canvas id="hCanvas"></canvas>
+            <canvas id="dCanvas"></canvas>
+            <script src="js/green/green.js"></script>
+
+
+    <script>
+
+    $(function() {
+        
+        $( "#slider-range" ).slider({
+            range: true,
+            min: 0,
+            max: 255,
+            values: [ 0, 255 ],
+            slide: function( event, ui ) {
+                $( "#amount" ).val( " " + ui.values[ 0 ] + " -  " + ui.values[ 1 ]); 
+
+                val1 = ui.values[0];
+                val2 = ui.values[1];
+                frameFix();
+            }
+        });
+        $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+            " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+
+
+    $( "#slider-range2" ).slider({
+            range: true,
+            min: 0,
+            max: 255,
+            values: [ 0, 255 ],
+            slide: function( event, ui ) {
+                $( "#amount2" ).val( " " + ui.values[ 0 ] + " -  " + ui.values[ 1 ] );
+                
+                val3 = ui.values[0];
+                val4 = ui.values[1];
+                frameFix();
+            }
+        });
+        $( "#amount2" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+            " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+
+    $( "#slider-range3" ).slider({
+                range: true,
+                min: 0,
+                max: 255,
+                values: [ 0, 255 ],
+                slide: function( event, ui ) {
+                    $( "#amount3" ).val( " " + ui.values[ 0 ] + " -  " + ui.values[ 1 ] );
+
+                    val5 = ui.values[0];
+                    val6 = ui.values[1];
+                    frameFix();
+                }
+            });
+            $( "#amount3" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+                " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+    });
+
+      var val1;
+      var val2;
+      var val3;
+      var val4;
+      var val5;
+      var val6;
+     
+    
+    </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,43 @@
+#hCanvas {
+    display: none
+}
+
+#dCanvas {
+    position: fixed;
+    bottom: 0;
+    margin: 150px auto;
+    left: 0;
+    right: 0;
+}
+
+#controls {
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    width: 200px;
+    /*height: 150px;*/
+    padding: 10px;
+    font-size: 10px;
+}
+
+input {
+    /*width: 100px;*/
+    height: 20px;
+    background-color: transparent;
+}
+
+#amount, #amount2, #amount3 {
+    color: gray;
+}
+
+#slider-range, #slider-range2, #slider-range3 {
+    margin: 0;
+    width: 150px;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.green-video {
+    opacity: 0;
+}
+

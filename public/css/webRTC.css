@@ -1,0 +1,192 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#main-controls {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+}
+#main-control-header {
+    display: block;
+    /*background: magenta;*/
+    margin: 0;
+    padding: 0;
+}
+
+.main-control-groups {
+    display: inline-block;
+    width: 260px;
+    min-width: 0 !important;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+    overflow: scroll;
+    /* background: orange; */
+    float: left;
+    position: relative;
+}
+.main-control-groups span {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+
+#main-controls h2 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    padding: 10px;
+    border: none;
+    /*background: red;*/
+    width: 330px;
+}
+#main-controls h3 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    padding: 10px;
+    border: none;
+    /*background: red;*/
+}
+#main-controls #hide-checkbox {
+    display: inline-block;
+    float: right;
+    /*background: yellow;*/
+    width: 100px;
+    padding-top: 20px;
+}
+    #main-controls #hide-checkbox * {
+        display: inline-block;
+    }
+#main-controls input {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+#main-controls .input-amount {
+    margin-left: 0;
+}
+
+#main-controls #room-name {
+    background: white;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+}
+
+#main-controls .setup {
+    font-size: 14px;
+}
+    #main-controls .setup span {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        display: inline-block;
+        top: -10px;
+    }
+    button#share-screen {
+        padding: 0;
+        float: left;
+    }
+
+#main-controls ul {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+    #main-controls ul li {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        width: 280px;
+        margin-right: 50px;
+        border: none;
+        /*background: lime;*/
+    }
+    #main-controls ul li * {
+        display: inline-block;
+        float: left;
+        margin: 0;
+        line-height: 1.3;
+        padding: 0;
+        width: auto !important;
+        margin-right: 10px;
+        font-size: 14px;
+    }
+.control-info-wrapper {
+    display: inline-block;
+    width: 230px;
+    /*background: brown;*/
+}
+
+.control-info {
+    display: inline-block;
+    margin: 0 !important;
+    padding: 0;
+    /*background: red;*/
+    width: 50px;
+}
+
+video {
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    
+    -o-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    vertical-align: top;
+    width: 100%;
+}
+
+input {
+    border: 1px solid #d9d9d9;
+    border-radius: 1px;
+    border-sizing: border-box;
+}
+
+article {
+    width: auto;
+    height: auto;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+select {
+    border: 1px solid #d9d9d9;
+    border-radius: 1px;
+    height: 50px;
+    margin-left: 1em;
+    margin-right: -12px;
+    padding: 1.1em;
+    vertical-align: 6px;
+    width: 18%;
+    box-sizing: border-box;
+}
+
+.setup {
+    width: 80px;
+    height: 20px;
+}
+
+li {
+    border-bottom: 1px solid rgb(189, 189, 189);
+    border-left: 1px solid rgb(189, 189, 189);
+    padding: .5em;
+}
+
+.experiment {
+    margin: 0;
+    padding: 0;
+}
